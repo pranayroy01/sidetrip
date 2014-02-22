@@ -1,5 +1,10 @@
 Sidetrip::Application.routes.draw do
-  root :to => "home#index"
+  get "pages/home"
+  get "pages/about"
+  get "pages/contact"
+  resources :searches
+
+  root :to => "pages#home"
   devise_for :users, :controllers => {:registrations => "registrations"}
   resources :users
 end
