@@ -1,16 +1,45 @@
-<p>Welcome to side trip</p>
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<%= javascript_include_tag "jquery.ui.addresspicker" %>
+
+<script type="text/javascript">
+  $(function() {
+    var addresspicker = $( "#addresspicker" ).addresspicker({
+      regionBias: "sg"});
+  });
+</script>
 
 
-<%= simple_form_for(@search) do |f| %>
-  <%= f.error_notification %>
+<div class="container">
 
-  <div class="form-inputs">
-    <%= f.input :address %>
-    <%= f.input :time_from %>
-    <%= f.input :time_to %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+
+	<%= simple_form_for(@search) do |f| %>
+	  <%= f.error_notification %>
+
+	  <div class="form-inputs">
+		  <div class="row">
+		  	<div class="col-md-4">
+		  		<p>Where are you now?</p>
+		  	</div>
+		  	<div class="col-md-8">
+		    	<%= f.input :address, :input_html => {:id => "addresspicker"}, label: false %>
+		    </div>
+		  </div>
+		  <div class="row">
+		  	<div class="col-md-4">
+		  		<p>When are you free?</p>
+		  	</div>	
+		  	<div class="col-md-4">
+		  		<%= f.input :time_from, label: false %>
+		  	</div>
+		  	<div class="col-md-4">
+		  		<%= f.input :time_to, label: false %>
+		  	</div>
+		  </div>
+	  </div>
+
+	  <div class="form-actions">
+	    <%= f.button :submit, "Find cool places to visit ->", :class => "pull-right" %>
+	  </div>
+	<% end %>
+</div>
