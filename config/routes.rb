@@ -1,4 +1,6 @@
 Sidetrip::Application.routes.draw do
+  resources :places
+
   get "pages/home"
   get "pages/about"
   get "pages/contact"

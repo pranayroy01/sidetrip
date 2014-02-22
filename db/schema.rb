@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222065755) do
+ActiveRecord::Schema.define(version: 20140222070718) do
+
+  create_table "places", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.text     "description"
+    t.string   "photo_url"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "category"
+    t.integer  "visit_time_minutes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "roles", force: true do |t|
     t.string   "name"
