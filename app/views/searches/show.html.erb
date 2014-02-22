@@ -30,5 +30,59 @@
   <%= @search.user_id %>
 </p>
 
+<% @places.each do |place| %>
+
+  <p>
+    <strong>Name:</strong>
+    <%= place.name unless place.name.blank? %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= place.address unless place.address.blank? %>
+  </p>
+
+  <p>
+    <strong>Latitude:</strong>
+    <%= place.latitude unless place.latitude.blank? %>
+  </p>
+
+  <p>
+    <strong>Longitude:</strong>
+    <%= place.longitude unless place.longitude.blank? %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= place.description unless place.description.blank?  %>
+  </p>
+
+  <p>
+    <strong>Photo url:</strong>
+    <%= place.photo_url unless place.photo_url.blank? %>
+  </p>
+
+  <p>
+    <strong>Start time:</strong>
+    <%= place.start_time unless place.start_time.blank? %>
+  </p>
+
+  <p>
+    <strong>End time:</strong>
+    <%= place.end_time unless place.end_time.blank? %>
+  </p>
+
+  <p>
+    <strong>Category:</strong>
+    <%= place.category unless place.category.blank? %>
+  </p>
+
+  <p>
+    <strong>Visit time minutes:</strong>
+    <%= place.visit_time_minutes unless place.visit_time_minutes.blank? %>
+  </p>
+
+<% end %>
+
 <%= link_to 'Edit', edit_search_path(@search) %> |
 <%= link_to 'Back', searches_path %>

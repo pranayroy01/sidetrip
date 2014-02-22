@@ -10,6 +10,7 @@ class SearchesController < ApplicationController
   # GET /searches/1
   # GET /searches/1.json
   def show
+    @places = Place.near(@search.address, 10)
   end
 
   # GET /searches/new
